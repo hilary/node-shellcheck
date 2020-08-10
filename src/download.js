@@ -24,10 +24,10 @@ function main() {
   const outputDir = `${__dirname}\\..\\temp`
   const outputFilename = `${outputDir}\\${filename}`
   const extractedDir = `${__dirname}\\..\\bin\\`
-  const outputFile = fs.createWriteStream(outputFilename);
   
   mkdirp.sync(outputDir);
   mkdirp.sync(extractedDir);
+  var outputFile = fs.createWriteStream(outputFilename);
 
   const download = (url) => {
     https
