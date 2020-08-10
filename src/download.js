@@ -57,8 +57,6 @@ function main() {
         zipfile.on("entry", function(entry) {
           outfilename = `${extractedDir}${entry.fileName}`
           dir = path.dirname(outfilename)
-          console.log(outfilename)
-          console.log(dir)
           if (/\/$/.test(entry.fileName)) {
             // directory file names end with '/'
             mkdirp(outfilename, function(err) {

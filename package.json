@@ -2,20 +2,18 @@
   "name": "shellcheck",
   "version": "0.4.5",
   "description": "Wrapper to download shellcheck",
-  "directories": {
-    "bin": "./shellcheck-latest"
+  "bin": {
+    "shellcheck": "node src/shellcheck.js"
   },
   "files": [
-    "install.sh",
-    "download.js",
-    "shellcheck-latest"
+    "src/download.js",
+    "src/shellcheck.js",
+    "README.md"
   ],
   "scripts": {
-    "test": "shellcheck *.sh",
-    "preinstall": "run-script-os",
-    "preinstall:windows": "scripts\\install.bat",
-    "preinstall:default": "./scripts/install.sh",
-    "postversion": "git push --follow-tags"
+    "postinstall": "node src/download.js",
+    "postversion": "git push --follow-tags",
+    "test": "node src/shellcheck.js tests/example.bash"
   },
   "repository": {
     "type": "git",
@@ -32,9 +30,8 @@
   },
   "homepage": "https://github.com/gunar/shellcheck#readme",
   "dependencies": {
-    "glob-run": "^0.1.7",
     "mkdirp": "^1.0.4",
-    "run-script-os": "^1.1.1",
+    "shelljs": "^0.8.4",
     "tar": "^6.0.2",
     "yauzl": "^2.10.0"
   }

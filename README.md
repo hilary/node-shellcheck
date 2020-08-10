@@ -1,4 +1,4 @@
-# shellcheck 
+# shellcheck
 
 Linting for your bash code.
 
@@ -6,11 +6,13 @@ This package downloads [koalaman's shellcheck](https://www.shellcheck.net/) from
 And makes the binary available at `node_modules/.bin/shellcheck`.
 
 ## Installation
+
 ```sh
 npm install --dev shellcheck
 ```
 
 ## Usage
+
 Edit `package.json` to call `shellcheck` from your npm scripts:
 
 ```json
@@ -27,4 +29,4 @@ Edit `package.json` to call `shellcheck` from your npm scripts:
 
 ## License
 
-MIT [http://gunar.mit-license.org]()
+[http://gunar.mit-license.org](MIT)
