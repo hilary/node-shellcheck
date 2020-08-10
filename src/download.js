@@ -5,6 +5,13 @@ const yauzl = require('yauzl');
 const path = require('path');
 var mkdirp = require("mkdirp");
 
+const decompress = require('decompress');
+const decompressTargz = require('decompress-targz');
+const decompressTarxz = require('decompress-tarxz');
+const decompressTar = require('decompress-tar');
+const decompressTarbz2 = require('decompress-tarbz2');
+const decompressUnzip = require('decompress-unzip');
+ 
 function main() {  
   var filename;
   
@@ -12,7 +19,7 @@ function main() {
     filename = `shellcheck-latest.zip`;
   }
   else {
-    filename = `shellcheck-latest.${process.platform}.x86_64.tar.xz`;
+    filename = `shellcheck-latest.linux.x86_64.tar.xz`;
   }
   
   const url = `https://github.com/koalaman/shellcheck/releases/download/latest/${filename}`;
@@ -48,7 +55,7 @@ function main() {
   download(url);
   
   outputFile.on('finish', function() {
-    if (process.platform === "win32") {  
+    if (filename.includes(".zip")) {  
       console.log(`Extracting archive: '${outputFilename}'`);
       console.log(`Target directory: '${extractedDir}'`);
       yauzl.open(outputFilename, {lazyEntries: true}, function(err, zipfile) {
@@ -77,14 +84,20 @@ function main() {
           }
         });
       });
-    } else {
-      tar.x(  // or tar.extract(
-        {
-          file: filename
-        }
-      ).then(_=> { 
-        console.log("Did it");
-      });  
+    } else {      
+      console.log(`Source archive: '${outputFilename}'`);
+      console.log(`Target directory: '${extractedDir}'`);
+            
+      decompress(outputFilename, extractedDir, {
+        plugins: [
+          decompressTarxz(), decompressTar(), decompressTarbz2(), decompressTargz(), decompressUnzip()
+        ],
+        strip: 1
+      }).then(files => {
+        console.log('Files decompressed.');
+      }).catch(err => {
+        console.log(err)
+      });
   }});
 }
 

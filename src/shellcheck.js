@@ -12,7 +12,7 @@ function main() {
     filename = `shellcheck-latest`;
   }  
   
-  const shellcheck = `${__dirname}\\..\\bin\\${filename}`
+  const shellcheck = `${__dirname}/../bin/${filename}`
   
   shell.exec(`"${shellcheck}" ${process.argv.slice(2).join(' ')}`);
 }
