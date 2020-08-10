@@ -1,6 +1,6 @@
 {
   "name": "shellcheck",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "description": "Wrapper to download shellcheck",
   "directories": {
     "bin": "./shellcheck-latest"
@@ -12,7 +12,9 @@
   ],
   "scripts": {
     "test": "shellcheck *.sh",
-    "preinstall": "./install.sh",
+    "preinstall": "run-script-os",
+    "preinstall:windows": "scripts\\install.bat",
+    "preinstall:default": "./scripts/install.sh",
     "postversion": "git push --follow-tags"
   },
   "repository": {
@@ -28,5 +30,12 @@
   "bugs": {
     "url": "https://github.com/gunar/shellcheck/issues"
   },
-  "homepage": "https://github.com/gunar/shellcheck#readme"
+  "homepage": "https://github.com/gunar/shellcheck#readme",
+  "dependencies": {
+    "glob-run": "^0.1.7",
+    "mkdirp": "^1.0.4",
+    "run-script-os": "^1.1.1",
+    "tar": "^6.0.2",
+    "yauzl": "^2.10.0"
+  }
 }

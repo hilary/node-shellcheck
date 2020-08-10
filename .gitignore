@@ -1,5 +1,7 @@
-/package-lock.json
-/yarn.lock
-/shellcheck-*.tgz
+node_modules/
+bin/
+temp/
+shellcheck-latest/
 
-/shellcheck-latest
+shellcheck*.zip
+shellcheck*.tgz
