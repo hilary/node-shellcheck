@@ -107,4 +107,6 @@ function install() {
     });
 }
 
+install();
+
 export {install};
