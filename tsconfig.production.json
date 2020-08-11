@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "esnext",
+        "module": "commonjs",
+        "strict": true,
+        "outDir": "bin",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "bin"
+    },
+    "include": ["./src/*.ts"],
+    "exclude": ["**/node_modules/**", "**/yarn_modules/**"]
+}

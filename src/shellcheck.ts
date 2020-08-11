@@ -1,5 +1,5 @@
-const path = require('path');
-const shell = require('shelljs');
+import { normalize } from "path";
+import { exec } from "shelljs";
 
 /**
  * Execute shellcheck installed in 'bin' folder.
@@ -7,7 +7,7 @@ const shell = require('shelljs');
  * @param {Array} args Arguments to pass to shellcheck.
  * @return {num} Error code from running shellcheck.
  */
-function main(args = process.argv.slice(2)) {
+function shellcheck(args = process.argv.slice(2)) {
     let filename;
 
     if (process.platform === 'win32') {
@@ -16,15 +16,19 @@ function main(args = process.argv.slice(2)) {
         filename = `shellcheck`;
     }
 
-    const shellcheck = path.normalize(`${__dirname}/../bin/${filename}`);
+    const shellcheck = normalize(`${__dirname}/../bin/${filename}`);
 
-    outargs = args;
+    var outargs:string;
+
     if (Array.isArray(args)) {
         outargs = args.join(' ');
+    } else {
+        outargs = args
     }
-    result = shell.exec(`"${shellcheck}" ${outargs}`);
+
+    var result = exec(`"${shellcheck}" ${outargs}`);
 
     return result.code;
 }
 
-module.exports = main;
+export { shellcheck };

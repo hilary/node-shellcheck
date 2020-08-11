@@ -1,19 +1,23 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const yauzl = require('yauzl');
+/**
+ * Download ShellCheck and extract to binary ('bin') folder.
+ */
 
-const decompress = require('decompress');
-const decompressTarxz = require('decompress-tarxz');
-const decompressTar = require('decompress-tar');
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import mkdirp from 'mkdirp';
+import yauzl from 'yauzl';
+
+import decompress from 'decompress';
+import decompressTarxz from 'decompress-tarxz';
+import decompressTar from 'decompress-tar';
 
 /**
  * Download shellcheck for either Linux or Windows and extract to 'bin' folder. This
  * will create a 'temp' folder and leave it there.
  */
-function main() {
-    let filename;
+function install() {
+    let filename:string;
 
     if (process.platform === 'win32') {
         filename = `shellcheck-latest.zip`;
@@ -23,7 +27,7 @@ function main() {
 
     const url = `https://github.com/koalaman/shellcheck/releases/download/latest/${filename}`;
 
-    const isRedirect = (statusCode) => {
+    const isRedirect = (statusCode:number) => {
         return statusCode >= 300 && statusCode < 400;
     };
 
@@ -35,16 +39,16 @@ function main() {
     mkdirp.sync(extractedDir);
     const outputFile = fs.createWriteStream(outputFilename);
 
-    const download = (url) => {
+    const download = (url:string) => {
         https
-            .get(url, (res) => {
+            .get(url, (res:any) => {
                 if (isRedirect(res.statusCode)) {
                     download(res.headers.location);
                 } else {
                     res.pipe(outputFile);
                 }
             })
-            .on('error', (err) => {
+            .on('error', (err:any) => {
                 console.log('Error: ' + err.message);
             });
     };
@@ -57,21 +61,24 @@ function main() {
         if (filename.includes('.zip')) {
             console.log(`Extracting archive: '${outputFilename}'`);
             console.log(`Target directory: '${extractedDir}'`);
-            yauzl.open(outputFilename, {lazyEntries: true}, function(err, zipfile) {
+            yauzl.open(outputFilename, {lazyEntries: true}, function(err:any, zipfile:any) {
                 if (err) throw err;
                 zipfile.readEntry();
-                zipfile.on('entry', function(entry) {
-                    outfilename = `${extractedDir}${entry.fileName}`;
-                    dir = path.dirname(outfilename);
+                zipfile.on('entry', function(entry:any) {
+                    const outfilename = `${extractedDir}${entry.fileName}`;
+                    const dir = path.dirname(outfilename);
                     if (/\/$/.test(entry.fileName)) {
                         // directory file names end with '/'
-                        mkdirp(outfilename, function(err) {
-                            if (err) throw err;
+                        mkdirp(outfilename).then(() =>
+                        {
                             zipfile.readEntry();
+                        }).catch((err) => {
+                            console.log("Failed to read zip file entry.")
+                            if (err) throw err;
                         });
                     } else {
                         // file entry
-                        zipfile.openReadStream(entry, function(err, readStream) {
+                        zipfile.openReadStream(entry, function(err:any, readStream:any) {
                             if (err) throw err;
                             // ensure parent directory exists
                             mkdirp.sync(dir);
@@ -92,13 +99,13 @@ function main() {
                     decompressTarxz(), decompressTar()
                 ],
                 strip: 1
-            }).then((files) => {
+            }).then(() => {
                 console.log('Files decompressed.');
-            }).catch((err) => {
+            }).catch((err:any) => {
                 console.log(err);
             });
         }
     });
 }
 
-main();
+export { install };

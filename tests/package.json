@@ -3,7 +3,7 @@
     "version": "0.9.0",
     "description": "Wrapper to test shellcheck",
     "scripts": {
-        "postinstall": "node test.js"
+        "postinstall": "ts-node test.ts"
     },
     "repository": {
         "type": "git",
@@ -20,6 +20,8 @@
     },
     "homepage": "https://github.com/joelvaneenwyk/shellcheck#readme",
     "dependencies": {
-        "node-shellcheck": "file:.."
+        "node-shellcheck": "file:..",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
     }
 }

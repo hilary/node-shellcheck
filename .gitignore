@@ -8,3 +8,4 @@ shellcheck*.zip
 shellcheck*.tgz
 
 yarn-error.log
+tsconfig.tsbuildinfo
