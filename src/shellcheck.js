@@ -5,6 +5,7 @@ const shell = require('shelljs');
  * Execute shellcheck installed in 'bin' folder.
  *
  * @param {Array} args Arguments to pass to shellcheck.
+ * @return {num} Error code from running shellcheck.
  */
 function main(args = process.argv.slice(2)) {
     let filename;
