@@ -1,11 +1,12 @@
-const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
 
 /**
  * Execute shellcheck installed in 'bin' folder.
+ *
+ * @param {Array} args Arguments to pass to shellcheck.
  */
-function main() {
+function main(args = process.argv.slice(2)) {
     let filename;
 
     if (process.platform === 'win32') {
@@ -16,7 +17,11 @@ function main() {
 
     const shellcheck = path.normalize(`${__dirname}/../bin/${filename}`);
 
-    shell.exec(`"${shellcheck}" ${process.argv.slice(2).join(' ')}`);
+    outargs = args;
+    if (Array.isArray(args)) {
+        outargs = args.join(' ');
+    }
+    shell.exec(`"${shellcheck}" ${outargs}`);
 }
 
-main();
+module.exports = main;

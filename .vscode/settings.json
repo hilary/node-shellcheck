@@ -15,5 +15,12 @@
     "beautify.language": {
         "css": ["css", "scss"],
         "html": ["htm", "html"]
-    }
+    },
+
+    "search.exclude": {
+        "external/**": true,
+        "**/node_modules": true,
+        "**/yarn_modules": true,
+        "**/*.code-search": true
+    },
 }

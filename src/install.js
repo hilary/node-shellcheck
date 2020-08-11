@@ -1,15 +1,12 @@
 const https = require('https');
 const fs = require('fs');
-const yauzl = require('yauzl');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const yauzl = require('yauzl');
 
 const decompress = require('decompress');
-const decompressTargz = require('decompress-targz');
 const decompressTarxz = require('decompress-tarxz');
 const decompressTar = require('decompress-tar');
-const decompressTarbz2 = require('decompress-tarbz2');
-const decompressUnzip = require('decompress-unzip');
 
 /**
  * Download shellcheck for either Linux or Windows and extract to 'bin' folder. This
@@ -92,7 +89,7 @@ function main() {
 
             decompress(outputFilename, extractedDir, {
                 plugins: [
-                    decompressTarxz(), decompressTar(), decompressTarbz2(), decompressTargz(), decompressUnzip()
+                    decompressTarxz(), decompressTar()
                 ],
                 strip: 1
             }).then((files) => {

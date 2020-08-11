@@ -22,8 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install --frozen-lockfile
-      - run: npm run build --if-present
-      - run: npm test
+      - run: yarn run build
+      - run: yarn test
 
   build-windows:
     runs-on: windows-latest
@@ -39,5 +39,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install --frozen-lockfile
-      - run: npm run build --if-present
-      - run: npm test
+      - run: yarn run build
+      - run: yarn test

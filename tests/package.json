@@ -1,0 +1,25 @@
+{
+    "name": "node-shellcheck-tests",
+    "version": "0.9.0",
+    "description": "Wrapper to test shellcheck",
+    "scripts": {
+        "postinstall": "node test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joelvaneenwyk/shellcheck.git"
+    },
+    "keywords": [
+        "shellcheck",
+        "shell"
+    ],
+    "author": "Joel Van Eenwyk",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joelvaneenwyk/shellcheck/issues"
+    },
+    "homepage": "https://github.com/joelvaneenwyk/shellcheck#readme",
+    "dependencies": {
+        "node-shellcheck": "file:.."
+    }
+}

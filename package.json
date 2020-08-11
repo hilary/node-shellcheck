@@ -1,25 +1,31 @@
 {
     "name": "node-shellcheck",
-    "version": "0.4.5",
+    "version": "0.4.8",
     "description": "Wrapper to download shellcheck",
     "bin": {
-        "shellcheck": "node src/shellcheck.js"
+        "shellcheck": "bin/shellcheck",
+        "shellcheck.bat": "bin/shellcheck.bat"
     },
+    "main": "src/shellcheck.js",
     "files": [
-        "src/download.js",
+        "src/install.js",
         "src/shellcheck.js",
+        "bin/shellcheck",
+        "bin/shellcheck.bat",
         "README.md"
     ],
     "scripts": {
-        "postinstall": "node src/download.js",
+        "provision": "npm install -g rimraf node-pre-gyp",
+        "postinstall": "node src/install.js",
         "postversion": "git push --follow-tags",
-        "test": "node src/shellcheck.js tests/example.bash",
-        "lint": "npx eslint src/",
-        "fix": "npx eslint --fix src/"
+        "test": "cd tests && yarn install",
+        "build": "eslint src/",
+        "lint": "eslint src/",
+        "fix": "eslint --fix src/"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gunar/shellcheck.git"
+        "url": "git+https://github.com/joelvaneenwyk/shellcheck.git"
     },
     "keywords": [
         "shellcheck",
@@ -39,20 +45,16 @@
     },
     "homepage": "https://github.com/joelvaneenwyk/shellcheck#readme",
     "dependencies": {
-        "@types/node": "^14.0.27",
-        "@types/watch": "^1.0.1",
-        "concat-stream": "^2.0.0",
         "decompress": "^4.2.1",
         "decompress-tar": "^4.1.1",
-        "decompress-tarbz2": "^4.1.1",
-        "decompress-targz": "^4.1.1",
         "decompress-tarxz": "^3.0.0",
+        "mkdirp": "^1.0.4",
+        "shelljs": "^0.8.4",
+        "yauzl": "^2.10.0"
+    },
+    "devDependencies": {
         "eslint": "^7.6.0",
         "eslint-config-google": "^0.14.0",
-        "mkdirp": "^1.0.4",
-        "node-pre-gyp": "^0.15.0",
-        "prettier": "^2.0.5",
-        "shelljs": "^0.8.4",
-        "ts-node": "^8.10.2"
+        "prettier": "^2.0.5"
     }
 }

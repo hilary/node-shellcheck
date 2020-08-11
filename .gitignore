@@ -1,7 +1,10 @@
 node_modules/
+yarn_modules/
 bin/
 temp/
 shellcheck-latest/
 
 shellcheck*.zip
 shellcheck*.tgz
+
+yarn-error.log
