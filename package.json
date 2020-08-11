@@ -1,48 +1,58 @@
 {
-  "name": "shellcheck",
-  "version": "0.4.5",
-  "description": "Wrapper to download shellcheck",
-  "bin": {
-    "shellcheck": "node src/shellcheck.js"
-  },
-  "files": [
-    "src/download.js",
-    "src/shellcheck.js",
-    "README.md"
-  ],
-  "scripts": {
-    "postinstall": "node src/download.js",
-    "postversion": "git push --follow-tags",
-    "test": "node src/shellcheck.js tests/example.bash"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gunar/shellcheck.git"
-  },
-  "keywords": [
-    "shellcheck",
-    "shell"
-  ],
-  "author": "Gunar C. Gessner (wrapper only)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gunar/shellcheck/issues"
-  },
-  "homepage": "https://github.com/gunar/shellcheck#readme",
-  "dependencies": {
-    "concat-stream": "^2.0.0",
-    "decompress": "^4.2.1",
-    "decompress-tar": "^4.1.1",
-    "decompress-tarbz2": "^4.1.1",
-    "decompress-targz": "^4.1.1",
-    "decompress-tarxz": "^3.0.0",
-    "gunzip": "^1.2.2",
-    "gunzip-maybe": "^1.4.2",
-    "mkdirp": "^1.0.4",
-    "shelljs": "^0.8.4",
-    "tar": "^6.0.2",
-    "targz": "^1.0.1",
-    "yauzl": "^2.10.0",
-    "zlib": "^1.0.5"
-  }
+    "name": "node-shellcheck",
+    "version": "0.4.5",
+    "description": "Wrapper to download shellcheck",
+    "bin": {
+        "shellcheck": "node src/shellcheck.js"
+    },
+    "files": [
+        "src/download.js",
+        "src/shellcheck.js",
+        "README.md"
+    ],
+    "scripts": {
+        "postinstall": "node src/download.js",
+        "postversion": "git push --follow-tags",
+        "test": "node src/shellcheck.js tests/example.bash",
+        "lint": "npx eslint src/",
+        "fix": "npx eslint --fix src/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gunar/shellcheck.git"
+    },
+    "keywords": [
+        "shellcheck",
+        "shell"
+    ],
+    "author": "Gunar C. Gessner (wrapper only)",
+    "contributors": [
+        {
+            "name": "Joel Van Eenwyk",
+            "email": "joel.vaneenwyk@gmail.com",
+            "url": "http://www.joelvaneenwyk.com"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joelvaneenwyk/shellcheck/issues"
+    },
+    "homepage": "https://github.com/joelvaneenwyk/shellcheck#readme",
+    "dependencies": {
+        "@types/node": "^14.0.27",
+        "@types/watch": "^1.0.1",
+        "concat-stream": "^2.0.0",
+        "decompress": "^4.2.1",
+        "decompress-tar": "^4.1.1",
+        "decompress-tarbz2": "^4.1.1",
+        "decompress-targz": "^4.1.1",
+        "decompress-tarxz": "^3.0.0",
+        "eslint": "^7.6.0",
+        "eslint-config-google": "^0.14.0",
+        "mkdirp": "^1.0.4",
+        "node-pre-gyp": "^0.15.0",
+        "prettier": "^2.0.5",
+        "shelljs": "^0.8.4",
+        "ts-node": "^8.10.2"
+    }
 }

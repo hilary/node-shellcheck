@@ -29,4 +29,4 @@ Edit `package.json` to call `shellcheck` from your npm scripts:
 
 ## License
 
-[http://gunar.mit-license.org](MIT)
+- [http://gunar.mit-license.org](MIT)
