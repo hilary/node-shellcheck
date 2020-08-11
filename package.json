@@ -32,13 +32,11 @@
         "shell"
     ],
     "author": "Gunar C. Gessner (wrapper only)",
-    "contributors": [
-        {
-            "name": "Joel Van Eenwyk",
-            "email": "joel.vaneenwyk@gmail.com",
-            "url": "http://www.joelvaneenwyk.com"
-        }
-    ],
+    "contributors": [{
+        "name": "Joel Van Eenwyk",
+        "email": "joel.vaneenwyk@gmail.com",
+        "url": "http://www.joelvaneenwyk.com"
+    }],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/joelvaneenwyk/shellcheck/issues"

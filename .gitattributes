@@ -1,0 +1,42 @@
+# Automatically set file type for those that are not set
+* text=auto
+
+# Shell scripts should always be lf as they run on Linux and on Windows
+# we might run them in a Docker instance that we build.
+*.sh text eol=lf
+*.bash text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+.yarnrc text eol=lf
+LICENSE text eol=lf
+
+#===================
+# The above will handle all files NOT found below
+#===================
+#
+
+# These files are text and should be normalized (Convert crlf => lf)
+*.css text
+*.html text
+*.java text
+*.json text
+*.properties text
+*.xml text
+
+# These files are binary and should be left untouched (binary is macro for -text -diff)
+*.class binary
+*.jar binary
+*.gif binary
+*.jpg binary
+*.png binary
+*.exe binary
+*.dll binary
+*.crt binary

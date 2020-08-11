@@ -1,9 +1,13 @@
-# shellcheck
+# ShellCheck
 
-Linting for your bash code.
+Node wrapper of ShellCheck, a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.
 
-This package downloads [koalaman's shellcheck](https://www.shellcheck.net/) from the official servers.
-And makes the binary available at `node_modules/.bin/shellcheck`.
+This package downloads [koalaman's shellcheck](https://www.shellcheck.net/) from the official servers and makes the binary available at `node_modules/.bin/shellcheck`. There is also a NodeJS module available so you can execute directly from JavaScript.
+
+```javascript
+const shellcheck = require("node-shellcheck");
+shellcheck("tests/example.bash");
+```
 
 ## Installation
 
