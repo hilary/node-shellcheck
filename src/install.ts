@@ -12,6 +12,7 @@ import decompress from 'decompress';
 import decompressTarxz from 'decompress-tarxz';
 import decompressTar from 'decompress-tar';
 
+
 /**
  * Download shellcheck for either Linux or Windows and extract to 'bin' folder. This
  * will create a 'temp' folder and leave it there.

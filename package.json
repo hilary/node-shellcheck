@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "provision": "npm install -g rimraf node-pre-gyp",
-        "postinstall": "node bin/install.js",
+        "postinstall": "tsc --project tsconfig.production.json && node bin/install.js",
         "postversion": "git push --follow-tags",
         "test": "cd tests && yarn install",
         "build": "tsc --project tsconfig.production.json && eslint src/**.ts",
