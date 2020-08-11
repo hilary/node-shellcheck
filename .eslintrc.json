@@ -1,18 +1,20 @@
 {
     "plugins": [],
+    "parser": "@typescript-eslint/parser",
     "env": {
-        "browser": true,
         "commonjs": true,
-        "es6": true,
         "node": true
     },
     "extends": ["google"],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "globals": {},
     "parserOptions": {
-        "ecmaVersion": 11
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "settings": {
+        "node": {
+            "tryExtensions": [".js", ".json", ".node", ".ts", ".d.ts"]
+        }
     },
     "rules": {
         "max-len": [

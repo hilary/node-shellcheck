@@ -1,5 +1,10 @@
-import { normalize } from "path";
-import { exec } from "shelljs";
+/**
+ * Wrapper function to call ShellCheck directly from JavaScript/TypeScript to
+ * handle intrinsic knowledge we have about where ShellCheck binaries were either
+ * installed or extracted.
+ */
+import {normalize} from 'path';
+import {exec} from 'shelljs';
 
 /**
  * Execute shellcheck installed in 'bin' folder.
@@ -18,17 +23,17 @@ function shellcheck(args = process.argv.slice(2)) {
 
     const shellcheck = normalize(`${__dirname}/../bin/${filename}`);
 
-    var outargs:string;
+    let outargs:string;
 
     if (Array.isArray(args)) {
         outargs = args.join(' ');
     } else {
-        outargs = args
+        outargs = args;
     }
 
-    var result = exec(`"${shellcheck}" ${outargs}`);
+    const result = exec(`"${shellcheck}" ${outargs}`);
 
     return result.code;
 }
 
-export { shellcheck };
+export {shellcheck};

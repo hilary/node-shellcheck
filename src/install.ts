@@ -12,7 +12,6 @@ import decompress from 'decompress';
 import decompressTarxz from 'decompress-tarxz';
 import decompressTar from 'decompress-tar';
 
-
 /**
  * Download shellcheck for either Linux or Windows and extract to 'bin' folder. This
  * will create a 'temp' folder and leave it there.
@@ -70,11 +69,10 @@ function install() {
                     const dir = path.dirname(outfilename);
                     if (/\/$/.test(entry.fileName)) {
                         // directory file names end with '/'
-                        mkdirp(outfilename).then(() =>
-                        {
+                        mkdirp(outfilename).then(() => {
                             zipfile.readEntry();
                         }).catch((err) => {
-                            console.log("Failed to read zip file entry.")
+                            console.log('Failed to read zip file entry.');
                             if (err) throw err;
                         });
                     } else {
@@ -109,4 +107,4 @@ function install() {
     });
 }
 
-export { install };
+export {install};

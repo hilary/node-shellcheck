@@ -6,7 +6,6 @@
         "strict": true,
         "outDir": "bin",
         "esModuleInterop": true,
-        "noImplicitAny": false,
         "forceConsistentCasingInFileNames": true
     },
     "include": ["./src/*.ts"],
