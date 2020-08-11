@@ -12,7 +12,7 @@ function main(args = process.argv.slice(2)) {
     if (process.platform === 'win32') {
         filename = `shellcheck-latest.exe`;
     } else {
-        filename = `shellcheck-latest`;
+        filename = `shellcheck`;
     }
 
     const shellcheck = path.normalize(`${__dirname}/../bin/${filename}`);
@@ -21,7 +21,9 @@ function main(args = process.argv.slice(2)) {
     if (Array.isArray(args)) {
         outargs = args.join(' ');
     }
-    shell.exec(`"${shellcheck}" ${outargs}`);
+    result = shell.exec(`"${shellcheck}" ${outargs}`);
+
+    return result.code;
 }
 
 module.exports = main;
