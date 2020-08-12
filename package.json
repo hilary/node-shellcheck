@@ -1,6 +1,6 @@
 {
     "name": "node-shellcheck",
-    "version": "0.4.9",
+    "version": "0.5.1",
     "description": "Wrapper to download shellcheck",
     "bin": {
         "shellcheck": "bin/shellcheck",
@@ -22,7 +22,7 @@
         "postinstall": "tsc --project tsconfig.production.json && node bin/install.js",
         "postversion": "git push --follow-tags",
         "test": "cd tests && yarn install",
-        "build": "tsc --project tsconfig.production.json && eslint src/** && node bin/install.js",
+        "build": "tsc --project tsconfig.production.json && eslint src/** && node bin/install.js && cd tests && yarn install --check-files",
         "lint": "eslint src/**",
         "fix": "eslint --fix src/**"
     },

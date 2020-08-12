@@ -4,7 +4,7 @@
  * installed or extracted.
  */
 import {normalize} from 'path';
-import {exec} from 'shelljs';
+import {exec, ExecOutputReturnValue} from 'shelljs';
 
 /**
  * Execute shellcheck installed in 'bin' folder.
@@ -12,7 +12,7 @@ import {exec} from 'shelljs';
  * @param {Array} args Arguments to pass to shellcheck.
  * @return {num} Error code from running shellcheck.
  */
-function shellcheck(args = process.argv.slice(2)) {
+function shellcheck(args = process.argv.slice(2)): ExecOutputReturnValue {
     let filename;
 
     if (process.platform === 'win32') {
@@ -31,9 +31,7 @@ function shellcheck(args = process.argv.slice(2)) {
         outargs = args;
     }
 
-    const result = exec(`"${shellcheck}" ${outargs}`);
-
-    return result.code;
+    return exec(`"${shellcheck}" ${outargs}`);
 }
 
 export {shellcheck};

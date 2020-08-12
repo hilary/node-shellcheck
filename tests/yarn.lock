@@ -542,6 +542,7 @@ node-pre-gyp@^0.11.0:
     decompress-tarxz "^3.0.0"
     mkdirp "^1.0.4"
     shelljs "^0.8.4"
+    typescript-eslint "0.0.1-alpha.0"
     yauzl "^2.10.0"
 
 nopt@^4.0.1:
@@ -859,6 +860,11 @@ ts-node@^8.10.2:
     make-error "^1.1.1"
     source-map-support "^0.5.17"
     yn "3.1.1"
+
+typescript-eslint@0.0.1-alpha.0:
+  version "0.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/typescript-eslint/-/typescript-eslint-0.0.1-alpha.0.tgz#285d68a4e96588295cd436278801bcb6a6b916c1"
+  integrity sha512-1hNKM37dAWML/2ltRXupOq2uqcdRQyDFphl+341NTPXFLLLiDhErXx8VtaSLh3xP7SyHZdcCgpt9boYYVb3fQg==
 
 typescript@^3.9.7:
   version "3.9.7"

@@ -22,8 +22,10 @@ function install() {
     if (process.platform === 'win32') {
         filename = `shellcheck-latest.zip`;
     } else {
-        filename = `shellcheck-latest.linux.x86_64.tar.xz`;
+        filename = `shellcheck-latest.${process.platform}.x86_64.tar.xz`;
     }
+
+    console.log(`Installing ShellCheck on '${process.platform}' (${process.arch})`);
 
     const url = `https://github.com/koalaman/shellcheck/releases/download/latest/${filename}`;
 
