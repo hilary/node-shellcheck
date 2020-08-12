@@ -5,17 +5,21 @@ temp
 .vscode
 test
 bin
+build
 
+#
+# Binaries and generated files
+#
+
+*.exe
 *.tgz
+tsconfig.*
+*.txt
 .gitattributes
 .editorconfig
 .yarnclean
 .yarnignore
 yarn.lock
-
+.yarnrc
 .eslintrc.json
 yarn-error.log
-tsconfig.*
-**LICENSE.txt
-README.txt
-*.txt

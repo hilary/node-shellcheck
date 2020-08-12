@@ -4,15 +4,14 @@
  * installed or extracted.
  */
 import {normalize} from 'path';
-import {exec, ExecOutputReturnValue} from 'shelljs';
+import {spawnSync} from 'child_process';
 
 /**
- * Execute shellcheck installed in 'bin' folder.
+ * Get executable path.
  *
- * @param {Array} args Arguments to pass to shellcheck.
- * @return {num} Error code from running shellcheck.
+ * @return {string} Absolute path of ShellCheck executable.
  */
-function shellcheck(args = process.argv.slice(2)): ExecOutputReturnValue {
+function getExecutable(): string {
     let filename;
 
     if (process.platform === 'win32') {
@@ -21,17 +20,17 @@ function shellcheck(args = process.argv.slice(2)): ExecOutputReturnValue {
         filename = `shellcheck`;
     }
 
-    const shellcheck = normalize(`${__dirname}/../bin/${filename}`);
-
-    let outargs:string;
-
-    if (Array.isArray(args)) {
-        outargs = args.join(' ');
-    } else {
-        outargs = args;
-    }
-
-    return exec(`"${shellcheck}" ${outargs}`);
+    return normalize(`${__dirname}/../bin/${filename}`);
 }
 
-export {shellcheck};
+/**
+ * Execute shellcheck installed in 'bin' folder.
+ *
+ * @param {Array} args Arguments to pass to shellcheck.
+ * @return {num} Error code from running shellcheck.
+ */
+function shellcheck(args = process.argv.slice(2)): any {
+    return spawnSync(getExecutable(), args);
+}
+
+export {shellcheck, getExecutable};

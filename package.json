@@ -27,13 +27,11 @@
         "shell"
     ],
     "author": "Gunar C. Gessner",
-    "contributors": [
-        {
-            "name": "Joel Van Eenwyk",
-            "email": "joel.vaneenwyk@gmail.com",
-            "url": "http://www.joelvaneenwyk.com"
-        }
-    ],
+    "contributors": [{
+        "name": "Joel Van Eenwyk",
+        "email": "joel.vaneenwyk@gmail.com",
+        "url": "http://www.joelvaneenwyk.com"
+    }],
     "readmeFilename": "README.md",
     "license": "MIT",
     "bugs": {
@@ -45,7 +43,6 @@
         "decompress-tar": "^4.1.1",
         "decompress-tarxz": "^3.0.0",
         "mkdirp": "^1.0.4",
-        "shelljs": "^0.8.4",
         "yauzl": "^2.10.0"
     },
     "devDependencies": {
