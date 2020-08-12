@@ -1,6 +1,6 @@
 {
     "name": "node-shellcheck",
-    "version": "0.5.1",
+    "version": "0.5.3",
     "description": "Wrapper to download shellcheck",
     "bin": {
         "shellcheck": "bin/shellcheck",
@@ -15,11 +15,13 @@
         "bin/shellcheck.d.js",
         "bin/shellcheck",
         "bin/shellcheck.bat",
-        "README.md"
+        "README.md",
+        "LICENSE",
+        "package.json"
     ],
     "scripts": {
-        "provision": "npm install -g rimraf node-pre-gyp",
-        "postinstall": "tsc --project tsconfig.production.json && node bin/install.js",
+        "provision": "yarn install -g rimraf node-pre-gyp",
+        "postinstall": "node bin/install.js",
         "postversion": "git push --follow-tags",
         "test": "cd tests && yarn install",
         "build": "tsc --project tsconfig.production.json && eslint src/** && node bin/install.js && cd tests && yarn install --check-files",
