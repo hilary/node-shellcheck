@@ -16,6 +16,7 @@
             "tryExtensions": [".js", ".json", ".node", ".ts", ".d.ts"]
         }
     },
+    "ignorePatterns": ["dist/*"],
     "rules": {
         "max-len": [
             "error",

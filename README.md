@@ -12,12 +12,12 @@ shellcheck("tests/example.bash");
 ## Installation
 
 ```sh
-npm install --dev shellcheck
+yarn add --dev shellcheck
 ```
 
 ## Usage
 
-Edit `package.json` to call `shellcheck` from your npm scripts:
+Edit `package.json` to call `shellcheck` from your npm/yarn scripts:
 
 ```json
 {

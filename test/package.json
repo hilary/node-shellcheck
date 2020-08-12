@@ -3,7 +3,7 @@
     "version": "0.9.0",
     "description": "Wrapper to test shellcheck",
     "scripts": {
-        "postinstall": "ts-node test.ts"
+        "postinstall": "tsc && ts-node test.ts"
     },
     "repository": {
         "type": "git",

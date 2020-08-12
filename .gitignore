@@ -1,10 +1,11 @@
-node_modules/
-bin/
-temp/
-shellcheck-latest/
+node_modules
+temp
+shellcheck-latest
+dist
+bin
 
-shellcheck*.zip
-shellcheck*.tgz
+*.zip
+*.tgz
 
 yarn-error.log
 tsconfig.tsbuildinfo

@@ -4,10 +4,12 @@
         "target": "esnext",
         "module": "commonjs",
         "strict": true,
-        "outDir": "bin",
+        "outDir": "dist",
         "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist"
     },
-    "include": ["./src/*.ts"],
-    "exclude": ["**/node_modules/**", "**/yarn_modules/**"]
+    "include": ["source"],
+    "exclude": ["node_modules", "dist"]
 }
