@@ -1,6 +1,6 @@
 {
     "name": "node-shellcheck",
-    "version": "0.5.7",
+    "version": "0.5.9",
     "description": "Wrapper to download shellcheck",
     "bin": {
         "shellcheck": "./dist/shellcheck.js"
@@ -8,7 +8,7 @@
     "main": "./dist/shellcheck.js",
     "types": "./dist/shellcheck.d.ts",
     "scripts": {
-        "prepack": "yarn run build",
+        "prepack": "yarn install && yarn run build",
         "provision": "yarn install -g rimraf node-pre-gyp",
         "postinstall": "node index.js",
         "postversion": "git push --follow-tags",
