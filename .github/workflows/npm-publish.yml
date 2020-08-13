@@ -28,7 +28,7 @@ jobs:
         with:
           auth-token: ${{ secrets.NPM_TOKEN }}
           registry-url: https://registry.npmjs.org/
-          cmd: yarn publish
+          cmd: publish
 
   publish-gpr:
     needs: build
@@ -39,4 +39,4 @@ jobs:
         with:
           auth-token: ${{ secrets.GITHUB_TOKEN }}
           registry-url: https://npm.pkg.github.com/
-          cmd: yarn publish
+          cmd: publish
