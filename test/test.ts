@@ -6,12 +6,12 @@ import {shellcheck} from 'node-shellcheck';
 
 const result = shellcheck(['example.bash']);
 
-console.log(`ShellCheck result: ${result.code}`);
-
 // We expect therer to be an error but should be one.
-if (result.code != 1) {
-    console.log('ShellCheck test failed. Invalid return code.');
+if (result.status != 1) {
+    console.log(`ShellCheck test failed. Invalid return status: '${result.status}'`);
     process.exit(1);
+} else {
+    console.log(`ShellCheck return status '${result.status}' as expected.`);
 }
 
 if (result.stdout.includes('SC2086: Double quote to prevent globbing and word splitting')) {

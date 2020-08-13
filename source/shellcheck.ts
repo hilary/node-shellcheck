@@ -4,7 +4,7 @@
  * installed or extracted.
  */
 import {normalize} from 'path';
-import {spawnSync} from 'child_process';
+import {spawnSync, SpawnSyncReturns} from 'child_process';
 
 /**
  * Get executable path.
@@ -27,9 +27,9 @@ function getExecutable(): string {
  * Execute shellcheck installed in 'bin' folder.
  *
  * @param {Array} args Arguments to pass to shellcheck.
- * @return {num} Error code from running shellcheck.
+ * @return {SpawnSyncReturns<string>} Error code from running shellcheck.
  */
-function shellcheck(args = process.argv.slice(2)): any {
+function shellcheck(args = process.argv.slice(2)): SpawnSyncReturns<string> {
     return spawnSync(getExecutable(), args);
 }
 
