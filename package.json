@@ -3,17 +3,17 @@
     "version": "0.5.7",
     "description": "Wrapper to download shellcheck",
     "bin": {
-        "shellcheck": "dist/shellcheck.js"
+        "shellcheck": "./dist/shellcheck.js"
     },
-    "main": "dist/shellcheck.js",
-    "types": "dist/shellcheck.d.ts",
+    "main": "./dist/shellcheck.js",
+    "types": "./dist/shellcheck.d.ts",
     "scripts": {
         "prepack": "yarn run build",
         "provision": "yarn install -g rimraf node-pre-gyp",
         "postinstall": "node index.js",
         "postversion": "git push --follow-tags",
-        "test": "cd test && yarn install --check-files",
-        "build": "tsc && yarn run download",
+        "test": "npm run build && cd test && yarn install",
+        "build": "tsc && yarn run download && tsc --build test/tsconfig.json",
         "download": "node index.js",
         "check": "eslint source/**",
         "fix": "eslint --fix source/**"
@@ -27,11 +27,13 @@
         "shell"
     ],
     "author": "Gunar C. Gessner",
-    "contributors": [{
-        "name": "Joel Van Eenwyk",
-        "email": "joel.vaneenwyk@gmail.com",
-        "url": "http://www.joelvaneenwyk.com"
-    }],
+    "contributors": [
+        {
+            "name": "Joel Van Eenwyk",
+            "email": "joel.vaneenwyk@gmail.com",
+            "url": "http://www.joelvaneenwyk.com"
+        }
+    ],
     "readmeFilename": "README.md",
     "license": "MIT",
     "bugs": {
