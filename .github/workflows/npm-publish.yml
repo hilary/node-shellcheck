@@ -24,27 +24,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: borales/actions-yarn@v2.0.0
         with:
-          node-version: 12
+          auth-token: ${{ secrets.NPM_TOKEN }}
           registry-url: https://registry.npmjs.org/
-      - run: yarn install
-      - run: yarn build
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          cmd: yarn publish
 
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: borales/actions-yarn@v2.0.0
         with:
-          node-version: 12
+          auth-token: ${{ secrets.GITHUB_TOKEN }}
           registry-url: https://npm.pkg.github.com/
-      - run: yarn install
-      - run: yarn build
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          cmd: yarn publish
