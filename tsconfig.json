@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "incremental": true,
         "target": "esnext",
         "module": "commonjs",
         "strict": true,
@@ -10,6 +9,10 @@
         "declaration": true,
         "declarationDir": "dist"
     },
-    "include": ["source"],
+    "includes": [
+        "source/*",
+        "lib/*",
+        "test/*"
+    ],
     "exclude": ["node_modules", "dist"]
 }

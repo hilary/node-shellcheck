@@ -6,6 +6,7 @@ temp
 test
 bin
 build
+dist/test**
 
 #
 # Binaries and generated files

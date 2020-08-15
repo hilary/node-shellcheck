@@ -14,7 +14,7 @@
         },
         {
             "name": "Install",
-            "program": "${workspaceFolder}/dist/install.js",
+            "program": "${workspaceFolder}/dist/source/install.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
