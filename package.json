@@ -1,6 +1,6 @@
 {
     "name": "node-shellcheck",
-    "version": "0.5.9",
+    "version": "0.6.0",
     "description": "Wrapper to download shellcheck",
     "bin": {
         "shellcheck": "./dist/source/shellcheck.js"
