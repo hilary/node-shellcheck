@@ -6,7 +6,7 @@
         "shellcheck": "./dist/source/shellcheck.js"
     },
     "main": "./dist/source/shellcheck.js",
-    "types": "./dist/source/shellcheck.d.ts",
+    "types": "./dist/**/*.d.ts",
     "scripts": {
         "prepack": "yarn run build",
         "provision": "yarn install -g rimraf node-pre-gyp",
@@ -15,8 +15,9 @@
         "test": "tsc && node dist/test/test.js",
         "build": "yarn install && tsc && yarn run download",
         "download": "node index.js",
-        "check": "eslint index.js source/*.ts test/*.ts",
-        "fix": "eslint --fix index.js source/*.ts test/*.ts"
+        "check": "eslint index.js src/**/*.ts",
+        "package": "yarn pack --json --out temp/node-shellcheck.tgz",
+        "fix": "eslint --fix index.js src/**/*.ts"
     },
     "repository": {
         "type": "git",

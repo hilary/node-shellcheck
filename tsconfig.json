@@ -10,9 +10,7 @@
         "declarationDir": "dist"
     },
     "includes": [
-        "source/*",
-        "lib/*",
-        "test/*"
+        "src/**"
     ],
     "exclude": ["node_modules", "dist"]
 }

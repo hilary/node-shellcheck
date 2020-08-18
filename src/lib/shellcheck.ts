@@ -4,6 +4,7 @@
  * installed or extracted.
  */
 import {normalize} from 'path';
+import {getProjectRoot} from './download';
 import {spawnSync, SpawnSyncReturns} from 'child_process';
 
 /**
@@ -20,7 +21,7 @@ function getExecutable(): string {
         filename = `shellcheck`;
     }
 
-    return normalize(`${__dirname}/../bin/${filename}`);
+    return normalize(`${getProjectRoot()}/bin/${filename}`);
 }
 
 /**

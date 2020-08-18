@@ -1,12 +1,30 @@
-node_modules
+#
+# Configuration Files
+#
+
 .github
-source
-temp
 .vscode
-test
-bin
-build
-dist/test**
+
+#
+# Generated
+#
+
+node_modules
+
+#
+# Temporary
+#
+
+/temp/
+/bin/
+/dist/test/
+
+#
+# Source
+#
+
+/src/
+/build/
 
 #
 # Binaries and generated files
@@ -14,8 +32,8 @@ dist/test**
 
 *.exe
 *.tgz
-tsconfig.*
 *.txt
+tsconfig.*
 .gitattributes
 .editorconfig
 .yarnclean

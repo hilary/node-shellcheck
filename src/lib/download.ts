@@ -19,13 +19,15 @@ import decompressTar from 'decompress-tar';
  */
 function getProjectRoot() {
     let root = path.normalize(`${__dirname}/../`);
-    if (fs.existsSync(`${root}/package.json`))
-    {
+    if (fs.existsSync(`${root}/package.json`)) {
         return root;
     }
     root = path.normalize(`${__dirname}/../../`);
-    if (fs.existsSync(`${root}/package.json`))
-    {
+    if (fs.existsSync(`${root}/package.json`)) {
+        return root;
+    }
+    root = path.normalize(`${__dirname}/../../../`);
+    if (fs.existsSync(`${root}/package.json`)) {
         return root;
     }
     return __dirname;

@@ -5,7 +5,7 @@
 
 try {
     // Requiring it will run install directly.
-    const install = require('./dist/source/install.js');
+    const install = require('./dist/bin/install.js');
 } catch {
     console.log('Install script not yet generated.');
 }
