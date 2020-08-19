@@ -1,11 +1,11 @@
 {
     "name": "node-shellcheck",
-    "version": "0.6.0",
+    "version": "0.6.2",
     "description": "Wrapper to download shellcheck",
     "bin": {
-        "shellcheck": "./dist/source/shellcheck.js"
+        "shellcheck": "./dist/bin/shellcheck.js"
     },
-    "main": "./dist/source/shellcheck.js",
+    "main": "./dist/bin/shellcheck.js",
     "types": "./dist/**/*.d.ts",
     "scripts": {
         "prepack": "yarn run build",
